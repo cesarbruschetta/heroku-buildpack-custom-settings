@@ -1,4 +1,4 @@
-Heroku buildpack: Hello
+Heroku buildpack: Add Custom_settings.py in Django App
 =======================
 
 This is an example [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks).
@@ -11,7 +11,7 @@ Example usage:
     $ ls
     hello.txt
 
-    $ heroku create --stack cedar --buildpack http://github.com/heroku/heroku-buildpack-hello.git
+    $ heroku create --stack cedar --buildpack https://github.com/cesarbruschetta/heroku-buildpack-custom-settings.git
 
     $ git push heroku master
     ...

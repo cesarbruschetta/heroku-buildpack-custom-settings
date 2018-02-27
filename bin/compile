@@ -1,16 +1,23 @@
 #!/bin/sh
 
+BUILD_DIR=$1
+CACHE_DIR=$2
+ENV_DIR=$3
+
 indent() {
   sed -u 's/^/       /'
 }
 
-echo "-----> Found a hello.txt"
+echo "-----> Create the custom_settings.py"
+ls -l $BUILD_DIR
+echo "###################################"
+ls -l $ENV_DIR
 
-# if hello.txt is empty, abort the build
-if [ ! -s $1/hello.txt ]; then
-  echo "hello.txt was empty" | indent
+# if Existe Variable 'CUSTOM_SETTINGS' in app get the content and criete file 
+if [ ! -s $ENV_DIR/CUSTOM_SETTINGS ]; then
+  echo "** Not existe varible CUSTOM_SETTINGS" | indent
   exit 1
 fi
 
 # replace hello with goodbye in a new file
-cat $1/hello.txt | sed -e "s/[Hh]ello/Goodbye/g" > $1/goodbye.txt
+cat $ENV_DIR/CUSTOM_SETTINGS > $BUILD_DIR/custom_settings.py

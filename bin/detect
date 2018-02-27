@@ -1,8 +1,10 @@
 #!/bin/sh
 
-# this pack is valid for apps with a hello.txt in the root
-if [ -f $1/hello.txt ]; then
-  echo "HelloFramework"
+BUILD_DIR=$1
+
+# Exit early if app is clearly not Python.
+if [ -f $BUILD_DIR/requirements.txt ]; then
+  echo "Start add custom_settings.py"
   exit 0
 else
   exit 1
