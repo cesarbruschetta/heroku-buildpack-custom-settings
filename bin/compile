@@ -8,13 +8,13 @@ echo "-----> Create the custom_settings.py"
 
 # if Existe Variable 'CUSTOM_SETTINGS' in app, with the content to file 
 if [ ! -s $ENV_DIR/CUSTOM_SETTINGS ]; then
-  echo "** Not existe varible CUSTOM_SETTINGS" | indent
+  echo "** Not existe varible CUSTOM_SETTINGS"
   exit 1
 fi
 
 # if Existe Variable 'DJANGO_APP_NAME' in app, with the name of folder the django app
 if [ ! -s $ENV_DIR/DJANGO_APP_NAME ]; then
-  echo "** Not existe varible DJANGO_APP_NAME" | indent
+  echo "** Not existe varible DJANGO_APP_NAME"
   exit 1
 fi
 
