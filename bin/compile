@@ -13,11 +13,17 @@ ls -l $BUILD_DIR
 echo "###################################"
 ls -l $ENV_DIR
 
-# if Existe Variable 'CUSTOM_SETTINGS' in app get the content and criete file 
+# if Existe Variable 'CUSTOM_SETTINGS' in app, with the content to file 
 if [ ! -s $ENV_DIR/CUSTOM_SETTINGS ]; then
   echo "** Not existe varible CUSTOM_SETTINGS" | indent
   exit 1
 fi
 
-# replace hello with goodbye in a new file
-cat $ENV_DIR/CUSTOM_SETTINGS > $BUILD_DIR/custom_settings.py
+# if Existe Variable 'DJANGO_APP_NAME' in app, with the name of folder the django app
+if [ ! -s $ENV_DIR/DJANGO_APP_NAME ]; then
+  echo "** Not existe varible DJANGO_APP_NAME" | indent
+  exit 1
+fi
+
+# Create file custom_settings in path to aplication django
+cat $ENV_DIR/CUSTOM_SETTINGS > $BUILD_DIR/$DJANGO_APP_NAME/custom_settings.py
