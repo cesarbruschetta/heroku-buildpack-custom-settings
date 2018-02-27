@@ -18,7 +18,7 @@ if [ ! -s $ENV_DIR/DJANGO_APP_NAME ]; then
   exit 1
 fi
 
-DJANGO_APP_NAME = $(cat $ENV_DIR/DJANGO_APP_NAME)
+DJANGO_APP_NAME=$(cat $ENV_DIR/DJANGO_APP_NAME)
 # Create file custom_settings in path to aplication django
 cat $ENV_DIR/CUSTOM_SETTINGS > $BUILD_DIR/$DJANGO_APP_NAME/custom_settings.py
 
